@@ -1,29 +1,29 @@
 /* Space out content a bit */
 body {
-  padding-top: 0;
-  padding-bottom: 0;
-  background-color: #021420;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #021420;
 }
 
 .container-ex {
-  width: 100%;
+    width: 100%;
 }
 
 .m-menu-ex {
-  background-color: #07374F;
-  margin-bottom: 100px
+    background-color: #07374F;
+    margin-bottom: 100px
 }
 .m-menu-ex li {
-  background-color: #07374F;
-  color: white;
+    background-color: #07374F;
+    color: white;
 }
 
 .movie-detail {
-  margin: 30px 0;
+    margin: 30px 0;
 }
 
 .movie-poster {
-  width: 200px;
-  height: 300px;
+    width: 200px;
+    height: 300px;
 }
 
