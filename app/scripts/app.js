@@ -9,8 +9,8 @@ angular.module('RecSystemWebApp', [
 .config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
+            templateUrl: 'views/similar.html',
+            controller: 'SimilarCtrl'
         })
         .otherwise({
             redirectTo: '/'

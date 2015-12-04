@@ -15,12 +15,18 @@
     <link rel="stylesheet" href="bower_components/metro/build/css/metro-icons.min.css">
     <link rel="stylesheet" href="bower_components/metro/build/css/metro-responsive.min.css">
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/similar.css">
     <!-- endbuild -->
   </head>
   <body ng-app="RecSystemWebApp">
 
     <!-- Add your site or application content here -->
+    <div class="header">
+        <ul class="m-menu m-menu-ex">
+            <li><a href="#">Home</a></li>
+        </ul>
+    </div>
     <div class="container container-ex" ng-view=""></div>
 
     <!-- build:js scripts/vendor.js -->
@@ -38,7 +44,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/similar.js"></script>
         <!-- endbuild -->
 </body>
 </html>
