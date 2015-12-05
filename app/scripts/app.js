@@ -4,7 +4,8 @@ angular.module('RecSystemWebApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'chart.js'
 ])
 .config(function ($routeProvider) {
     $routeProvider

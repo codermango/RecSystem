@@ -19,38 +19,43 @@
 
     <div class="rec-statistic fg-white">
         <h3>Recommendation statistic</h3>
-        <div class="rec-statistic-detail">
-            <div>There are 4 Genres</div>
+        <div class="rec-statistic-detail" ng-controller="PieCtrl">
+            <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options"></canvas> 
+        </div>
+        <div class="rec-statistic-info">
+            sss
         </div>
     </div>
 
-    <div class="grid">
-        <div class="row cells8">
-            <div class="cell">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
+    <div class="rec-result fg-white">
+        <h3>Recommendation movies</h3>
+        <div class="grid grid-ex">
+            <div class="row cells8">
+                <div class="cell">
+                    <img class="rec-poster" src="../images/tt0468569.jpg" >
+                </div>
+                <div class="cell">
+                    <img class="rec-poster" src="../images/tt0468569.jpg" >
+                </div>
+                <div class="cell">
+                    <img class="rec-poster" src="../images/tt0468569.jpg" >
+                </div>
+                <div class="cell">
+                    <img class="rec-poster" src="../images/tt0468569.jpg" >
+                </div>
+                <div class="cell">
+                    <img class="rec-poster" src="../images/tt0468569.jpg" >
+                </div>
+                <div class="cell">
+                    <img class="rec-poster" src="../images/tt0468569.jpg" >
+                </div>
+                <div class="cell">
+                    <img class="rec-poster" src="../images/tt0468569.jpg" >
+                </div>
+                <div class="cell">
+                    <img class="rec-poster" src="../images/tt0468569.jpg" >
+                </div>
             </div>
-            <div class="cell">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="cell">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="cell">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="cell">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="cell">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="cell">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="cell">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            
         </div>
     </div>
 </div>
