@@ -9,7 +9,7 @@ angular.module('RecSystemWebApp', [
 ])
 .config(function ($routeProvider) {
     $routeProvider
-        .when('/similar/:movieid', {
+        .when('/similar/:movieid/:recnum', {
             templateUrl: 'views/similar.html',
             controller: 'SimilarCtrl'
         })

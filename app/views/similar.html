@@ -1,14 +1,14 @@
 <div class="container">
     <div class="input-control text full-size" data-role="input">
-        <input type="text" placeholder="Input IMDb id">
-        <button class="button"><span class="mif-search"></span></button>
+        <input type="text" placeholder="Input IMDb id" ng-model="inputID">
+        <button class="button" ng-click="recommend(inputID)"><span class="mif-search"></span></button>
     </div>
 </div>
 
 <div class="container">
     <div class="movie-detail">
         <div class="movie-poster">
-            <img src="../images/tt0468569.jpg">
+            <img src="posters/{{movieID}}.jpg">
         </div>
         <div class="movie-info fg-white">
             <h2>The dark night</h2>
@@ -30,71 +30,10 @@
     <div class="rec-result fg-white">
         <h3>Recommendation movies</h3>
         <div class="row row-ex">
-            <div class="col-md-2">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
+            <div class="col-md-2 col-ex" ng-repeat="(key, value) in recMovies.movie">
+                <img class="rec-poster" ng-src="posters/{{key}}.jpg" >
             </div>
-            <div class="col-md-2">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="col-md-2">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="col-md-2">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="col-md-2">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="col-md-2">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            <div class="col-md-2">
-                <img class="rec-poster" src="../images/tt0468569.jpg" >
-            </div>
-            
         </div>
-
-
-        <!-- <div class="grid grid-ex">
-            <div class="row cells8">
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-                <div class="cell">
-                    <img class="rec-poster" src="../images/tt0468569.jpg" >
-                </div>
-            </div>
-        </div> -->
     </div>
 </div>
 
