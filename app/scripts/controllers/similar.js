@@ -8,6 +8,19 @@ angular.module('RecSystemWebApp')
             $scope.recMovies = data;
             console.log($scope.recMovies);
         });
+
+        $http({
+            url: 'http://www.omdbapi.com/?i=' + $scope.movieID + '&plot=short&r=json',
+            dataType: 'json',
+            method: 'GET',
+            data: ''
+        }).success(function(response){
+            var omdbData = data;
+            $scope.posterURL = omdbData.Poster;
+            console.log($scope.posterURL);
+        });
+
+
         console.log($scope.imdbid);
         $scope.recommend = function(imdbid, recNum) {
             $location.path('/similar/' + imdbid + '/10');
