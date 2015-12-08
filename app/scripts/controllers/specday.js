@@ -13,11 +13,9 @@ angular.module("RecSystemWebApp")
     }];
 
     $scope.selectedItem = $scope.selectionItems[0];
-    $location.path('/specday/' + $scope.selectedItem.name);
 
-    
     $scope.selectItem = function(selectedItem) {
         console.log($scope.selectedItem);
-        $location.path('/specday/' + $scope.selectedItem.name);
+
     }
 });
