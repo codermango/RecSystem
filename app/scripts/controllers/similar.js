@@ -9,16 +9,16 @@ angular.module('RecSystemWebApp')
             console.log($scope.recMovies);
         });
 
-        $http({
-            url: 'http://www.omdbapi.com/?i=' + $scope.movieID + '&plot=short&r=json',
-            dataType: 'json',
-            method: 'GET',
-            data: ''
-        }).success(function(response){
-            var omdbData = data;
-            $scope.posterURL = omdbData.Poster;
-            console.log($scope.posterURL);
-        });
+        // $http({
+        //     url: 'http://www.omdbapi.com/?i=' + $scope.movieID + '&plot=short&r=json',
+        //     dataType: 'json',
+        //     method: 'GET',
+        //     data: ''
+        // }).success(function(data){
+        //     var omdbData = data;
+        //     $scope.posterURL = omdbData.Poster;
+        //     console.log($scope.posterURL);
+        // });
 
 
         console.log($scope.imdbid);

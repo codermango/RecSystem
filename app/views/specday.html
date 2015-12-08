@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="input-control select full-size">
+        <select ng-model="selectedItem" 
+                ng-options="item.value for item in selectionItems"
+                ng-change="selectItem(selectedItem)">
+        </select>
+    </div>
+</div>
+
+
+<div class="container container-ex" ng-view=""></div>
+<!-- <div class="container">
+    <div class="rec-result fg-white">
+        <h3>Recommended movies</h3>
+        <div class="row row-ex">
+            <div class="col-md-2 col-ex" ng-repeat="key in recMovies">
+                <img class="rec-poster" ng-src="posters/tt0468569.jpg" >
+            </div>
+        </div>
+    </div>
+</div> -->
