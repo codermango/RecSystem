@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="rec-statistic fg-white">
+<!--     <div class="rec-statistic fg-white">
         <h3>Recommendation statistic</h3>
         <div class="rec-statistic-detail" ng-controller="PieCtrl">
             <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options"></canvas> 
@@ -26,13 +26,16 @@
         <div class="rec-statistic-info">
             sss
         </div>
-    </div>
+    </div> -->
 
     <div class="rec-result fg-white">
-        <h3>Recommendation movies</h3>
+        <h3>Recommended movies</h3>
         <div class="row row-ex">
             <div class="col-md-2 col-ex" ng-repeat="(key, value) in recMovies.movie">
-                <img class="rec-poster" ng-src="posters/{{key}}.jpg" >
+                <div class="rec-poster-wrap">
+                    <div class="rec-poster" style="background-image: url(posters/{{ key }}.jpg)"></div>
+                    <img src="images/poster.png" >
+                </div>
             </div>
         </div>
     </div>
