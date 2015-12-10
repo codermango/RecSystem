@@ -5,7 +5,8 @@ angular.module('RecSystemWebApp', [
     'ngResource',
     'ngSanitize',
     'ngRoute',
-    'chart.js'
+    'chart.js',
+    'infinite-scroll'
 ])
 .config(function ($routeProvider) {
     $routeProvider

@@ -1,3 +1,15 @@
-<div>
-    <a href="/#/similar/tt0340855/8">Demo</a>
+<div class="container">
+    <div class="rec-result fg-white">
+        <h3>All movies</h3>
+        <div infinite-scroll='loadMore()' infinite-scroll-distance='0'>
+            <div class="row row-ex">
+                <div class="col-md-1 col-ex" ng-repeat="key in moviesForShow">
+                    <div class="rec-poster-wrap">
+                        <div class="rec-poster" style="background-image: url(posters/{{ key }}.jpg)"></div>
+                        <img src="images/poster.png" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
