@@ -11,11 +11,11 @@
             <img ng-src="posters/{{movieID}}.jpg">
             <!-- <img ng-src="{{posterURL}}"> -->
         </div>
-        <div class="movie-info fg-white">
+        <!-- <div class="movie-info fg-white">
             <h2>The dark night</h2>
             <h4>gggggg</h4>
             <div></div>
-        </div>
+        </div> -->
     </div>
 
 <!--     <div class="rec-statistic fg-white">
@@ -35,9 +35,9 @@
                 <div class="rec-poster-wrap image-container">
                     <div class="rec-poster" style="background-image: url(posters/{{ movieid }}.jpg)"></div>
                     <img src="images/poster.png" >
-                    <div class="image-overlay">
-                        <div ng-repeat="(feature, featureScore) in recMovies.reason[movieid] | filter: featureScore != 0">
-                            {{ feature }}{{ featureScore }}
+                    <div class="image-overlay image-overlay-ex">
+                        <div style="text-align: left" ng-repeat="(feature, featureScore) in recMovies.reason[movieid]" ng-if="featureScore != 0">
+                            {{ feature }}
                         </div>
                     </div>
                 </div>
