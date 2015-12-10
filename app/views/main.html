@@ -5,8 +5,10 @@
             <div class="row row-ex">
                 <div class="col-md-1 col-ex" ng-repeat="key in moviesForShow">
                     <div class="rec-poster-wrap">
-                        <div class="rec-poster" style="background-image: url(posters/{{ key }}.jpg)"></div>
-                        <img src="images/poster.png" >
+                        <a href="/#/similar/{{key}}/12">
+                            <div class="rec-poster" style="background-image: url(posters/{{ key }}.jpg)"></div>
+                            <img src="images/poster.png" >
+                        </a>
                     </div>
                 </div>
             </div>

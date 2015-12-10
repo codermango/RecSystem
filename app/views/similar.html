@@ -31,10 +31,15 @@
     <div class="rec-result fg-white">
         <h3>Recommended movies</h3>
         <div class="row row-ex">
-            <div class="col-md-2 col-ex" ng-repeat="(key, value) in recMovies.movie">
-                <div class="rec-poster-wrap">
-                    <div class="rec-poster" style="background-image: url(posters/{{ key }}.jpg)"></div>
+            <div class="col-md-2 col-ex" ng-repeat="(movieid, simiScore) in recMovies.movie">
+                <div class="rec-poster-wrap image-container">
+                    <div class="rec-poster" style="background-image: url(posters/{{ movieid }}.jpg)"></div>
                     <img src="images/poster.png" >
+                    <div class="image-overlay">
+                        <div ng-repeat="(feature, featureScore) in recMovies.reason[movieid] | filter: featureScore != 0">
+                            {{ feature }}{{ featureScore }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
