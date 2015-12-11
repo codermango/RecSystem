@@ -11,6 +11,15 @@ angular.module('RecSystemWebApp')
 
         console.log($scope.imdbid);
         $scope.recommend = function(imdbid, recNum) {
+            if (imdbid == undefined || imdbid.trim() == '' ) {
+                var inputErrorDialog = $("#inputErrorDialog").data('dialog');
+                if (!inputErrorDialog.element.data('opened')) {
+                    inputErrorDialog.open();
+                } else {
+                    inputErrorDialog.close();
+                }
+                return;
+            }
             $location.path('/similar/' + imdbid + '/10/');
         };
     });
