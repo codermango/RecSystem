@@ -4,7 +4,7 @@ angular.module('RecSystemWebApp')
     .controller('SimilarCtrl', function ($scope, $http, $routeParams, $location) {
         $scope.movieID = $routeParams.movieid;
         $scope.recNum = $routeParams.recnum;
-        $http.get('http://127.0.0.1:8888/similar_movies/' + $scope.movieID + '/' + $scope.recNum).success(function(data) {
+        $http.get('http://192.168.1.80:8888/similar_movies/' + $scope.movieID + '/' + $scope.recNum).success(function(data) {
             $scope.recMovies = data;
             console.log($scope.recMovies);
         });
