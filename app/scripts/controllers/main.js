@@ -2,11 +2,9 @@
 
 angular.module('RecSystemWebApp')
     .controller('MainCtrl', function ($scope, $http) {
-<<<<<<< HEAD
+
         $http.get('http://127.0.0.1:8888/all_movies/').success(function(data) {
-=======
-        $http.get('http://192.168.1.80:8888/all_movies').success(function(data) {
->>>>>>> origin/master
+
             var allMovies = data['all_movies'];
             $scope.moviesForShow = allMovies.slice(0, 64);
 
