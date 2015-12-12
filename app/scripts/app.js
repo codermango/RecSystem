@@ -15,8 +15,8 @@ angular.module('RecSystemWebApp', [
             controller: 'SimilarCtrl'
         })
         .when('/', {
-            templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
+            templateUrl: 'views/home.html',
+            controller: 'HomeCtrl'
         })
         .when('/specday/', {
             templateUrl: 'views/specday.html',

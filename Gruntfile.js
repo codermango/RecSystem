@@ -38,6 +38,10 @@ module.exports = function (grunt) {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['newer:jshint:test', 'karma']
             },
+            less: {
+                files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+                tasks: ['less']
+            },
             styles: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
                 tasks: ['newer:copy:styles', 'autoprefixer']
@@ -53,7 +57,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/{,*/}*.html',
                     '.tmp/styles/{,*/}*.css',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-                    '!<%= yeoman.app %>/images/posters/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+
                 ]
             }
         },
@@ -149,7 +153,19 @@ module.exports = function (grunt) {
             }
         },
 
-
+        less: {
+            dist: {
+                files: {
+                    '<%= yeoman.app %>/styles/main.css': ['<%= yeoman.app %>/styles/main.less']
+                },
+                options: {
+                    sourceMap: true,
+                    sourceMapFilename: '<%= yeoman.app %>/styles/main.css.map',
+                    sourceMapBasepath: '<%= yeoman.app %>/',
+                    sourceMapRootpath: '/'
+                }
+            }
+        },
 
 
 
@@ -285,6 +301,7 @@ module.exports = function (grunt) {
                 'copy:styles'
             ],
             dist: [
+                'less',
                 'copy:styles',
                 'imagemin',
                 'svgmin'
@@ -335,6 +352,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'bower-install',
+            'less',
             'concurrent:server',
             'autoprefixer',
             'connect:livereload',
@@ -349,6 +367,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
+        'less',
         'concurrent:test',
         'autoprefixer',
         'connect:test',

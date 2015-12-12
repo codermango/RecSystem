@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('RecSystemWebApp')
-    .controller('MainCtrl', function ($scope, $http) {
+    .controller('HomeCtrl', function ($scope, $http) {
 
         $http.get('http://127.0.0.1:8888/all_movies/').success(function(data) {
 
