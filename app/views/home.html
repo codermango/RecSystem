@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="rec-result fg-white">
+    <div class="fg-white">
         <h3>All movies</h3>
         <div infinite-scroll='loadMore()' infinite-scroll-distance='0'>
             <div class="row">
-                <div class="col-md-1 col-ex" ng-repeat="key in moviesForShow">
-                    <div class="rec-poster-wrap">
+                <div class="col-md-3 poster-box" ng-repeat="key in moviesForShow">
+                    <div class="poster-box-wrap">
                         <a href="/#/similar/{{key}}/12">
-                            <div class="rec-poster" style="background-image: url(posters/{{ key }}.jpg)"></div>
+                            <div class="poster-image" style="background-image: url(posters/{{ key }}.jpg)"></div>
                             <img src="images/poster.png" >
                         </a>
                     </div>

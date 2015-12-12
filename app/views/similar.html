@@ -23,33 +23,32 @@
 
 <div class="container">
     <div class="movie-detail">
-        <div class="movie-poster">
+        <div class="movie-detail-poster">
             <img ng-src="posters/{{movieID}}.jpg">
-            <!-- <img ng-src="{{posterURL}}"> -->
         </div>
-        <!-- <div class="movie-info fg-white">
+        <div class="movie-detail-info fg-white">
             <h2>The dark night</h2>
             <h4>gggggg</h4>
             <div></div>
-        </div> -->
+        </div>
     </div>
 
-<!--     <div class="rec-statistic fg-white">
+    <div class="rec-statistic fg-white">
         <h3>Recommendation statistic</h3>
-        <div class="rec-statistic-detail" ng-controller="PieCtrl">
+        <div class="rec-statistic-chart" ng-controller="PieCtrl">
             <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options"></canvas> 
         </div>
         <div class="rec-statistic-info">
             sss
         </div>
-    </div> -->
+    </div>
 
     <div class="rec-result fg-white">
         <h3>Recommended movies</h3>
         <div class="row row-ex">
-            <div class="col-md-2 col-ex" ng-repeat="(movieid, simiScore) in recMovies.movie">
-                <div class="rec-poster-wrap image-container">
-                    <div class="rec-poster" style="background-image: url(posters/{{ movieid }}.jpg)"></div>
+            <div class="col-md-3 poster-box" ng-repeat="(movieid, simiScore) in recMovies.movie">
+                <div class="poster-box-wrap image-container">
+                    <div class="poster-image" style="background-image: url(posters/{{ movieid }}.jpg)"></div>
                     <img src="images/poster.png" >
                     <div class="image-overlay image-overlay-ex">
                         <div style="text-align: left" ng-repeat="(feature, featureScore) in recMovies.reason[movieid]" ng-if="featureScore != 0">
