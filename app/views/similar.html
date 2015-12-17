@@ -22,9 +22,17 @@
 </div>
 
 <div class="container">
-    <div class="movie-detail">
-        <div class="movie-detail-poster">
+    <div class="info-box">
+        <!-- <div class="movie-detail-poster">
             <img ng-src="posters/{{movieID}}.jpg">
+        </div> -->
+        <div class="poster-box">
+            <div class="poster-box-wrap">
+                <a ng-href="/#/similar/{{key}}/12">
+                    <div class="poster-image" style="background-image: url(posters/{{ movieID }}.jpg)"></div>
+                    <img src="images/poster.png" >
+                </a>
+            </div>
         </div>
         <div class="movie-detail-info fg-white">
             <h2>The dark night</h2>
@@ -33,7 +41,7 @@
         </div>
     </div>
 
-    <div class="rec-statistic fg-white">
+    <div class="info-box fg-white">
         <h3>Recommendation statistic</h3>
         <div class="rec-statistic-chart" ng-controller="PieCtrl">
             <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options"></canvas> 
@@ -43,10 +51,10 @@
         </div>
     </div>
 
-    <div class="rec-result fg-white">
+    <div class="info-box fg-white">
         <h3>Recommended movies</h3>
-        <div class="row row-ex">
-            <div class="col-md-3 poster-box" ng-repeat="(movieid, simiScore) in recMovies.movie">
+        <div class="row">
+            <div class="poster-box" ng-repeat="(movieid, simiScore) in recMovies.movie">
                 <div class="poster-box-wrap image-container">
                     <div class="poster-image" style="background-image: url(posters/{{ movieid }}.jpg)"></div>
                     <img src="images/poster.png" >

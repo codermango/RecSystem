@@ -1,9 +1,14 @@
 
 
 @import "../bower_components/bootstrap/less/bootstrap.less";
+@import "../bower_components/bootstrap/less/mixins/grid.less";
 @import "../bower_components/angular-chart.js/angular-chart.less";
 
-@import "../bower_components/metro/less/metro.less";
+// @import "../bower_components/metro/less/metro.less";
+@import "../bower_components/metro/less/menu.less";
+@import "../bower_components/metro/less/inputs.less";
+@import "../bower_components/metro/less/dialog.less";
+@import "../bower_components/metro/less/images.less";
 @import "../bower_components/metro/less/metro-icons.less";
 @import "../bower_components/metro/less/fonts.less";
 
@@ -34,7 +39,7 @@ body {
 }
 
 
-.movie-detail {
+.info-box {
     margin: 30px 0;
     width: 100%;
     overflow: hidden;
@@ -66,6 +71,10 @@ body {
 
 
 .poster-box {
+    .make-xs-column(12);
+    .make-sm-column(6);
+    .make-md-column(4);
+    .make-lg-column(3);
     position: relative;
     padding: 5px;
     &-wrap {
