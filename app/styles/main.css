@@ -17665,6 +17665,7 @@ body {
 }
 .poster-box-wrap {
   position: relative;
+  display: block;
 }
 .poster-box .poster-image {
   position: absolute;
