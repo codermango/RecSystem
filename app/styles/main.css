@@ -17622,6 +17622,7 @@ body {
 }
 .info-box-info {
   float: left;
+  padding: 5px 15px;
 }
 .rec-statistic {
   margin: 30px 0;
@@ -17666,6 +17667,9 @@ body {
 .poster-box-wrap {
   position: relative;
   display: block;
+}
+.poster-box-id {
+  text-align: center;
 }
 .poster-box .poster-image {
   position: absolute;

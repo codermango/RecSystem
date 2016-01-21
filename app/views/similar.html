@@ -1,7 +1,7 @@
 <div class="container">
     <div class="input-control text full-size" data-role="input">
         <input type="text" placeholder="Input IMDb id" ng-model="inputID">
-        <button class="button" ng-click="recommend(inputID)"><span class="mif-search"></span></button>
+        <button class="button" ng-click="recommend(inputID, 8)"><span class="mif-search"></span></button>
     </div>
 
     <div data-role="dialog" 
@@ -31,9 +31,11 @@
                 </a>
             </div>
         </div>
-        <div class="movie-detail-info fg-white">
-            <h2>The dark night</h2>
-            <h4>gggggg</h4>
+        <div class="info-box-info fg-white">
+            <h2>
+                <a href="http://www.imdb.com/title/{{ movieID }}">{{movieID}}</a>
+            </h2>
+            <h4></h4>
             <div></div>
         </div>
     </div>
@@ -51,15 +53,20 @@
     <div class="info-box fg-white">
         <h3>Recommended movies</h3>
         <div class="row">
-            <div class="poster-box" ng-repeat="(movieid, simiScore) in recMovies.movie">
+            <div class="poster-box" ng-repeat="movie in recMovies">
                 <div class="poster-box-wrap image-container">
-                    <div class="poster-image" style="background-image: url(posters/{{ movieid }}.jpg)"></div>
-                    <img src="images/poster.png" >
-                    <div class="image-overlay image-overlay-ex">
-                        <div style="text-align: left" ng-repeat="(feature, featureScore) in recMovies.reason[movieid]" ng-if="featureScore != 0">
-                            {{ feature }}
+                    <a href="http://192.168.1.80/#/similar/{{movie[0]}}/12">
+                        <div class="poster-image" style="background-image: url(posters/{{ movie[0] }}.jpg)"></div>
+                        <img src="images/poster.png" >
+                        <div class="image-overlay image-overlay-ex">
+                            <div style="text-align: left" ng-repeat="reason in recReasons[movie[0]]" ng-if="reason[1] != 0">
+                                {{ reason[0] }}
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="poster-box-id">
+                    <a href="http://www.imdb.com/title/{{movie[0]}}/" target="_blank">{{movie[0]}}</a>
                 </div>
             </div>
         </div>
