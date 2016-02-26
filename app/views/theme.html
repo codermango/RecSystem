@@ -1,0 +1,74 @@
+<div class="container input-area">
+    <div class="input-control text full-size" data-role="input">
+        <input type="text" placeholder="Input whatever you want" ng-model="word">
+        <button class="button" ng-click="search(word)"><span class="mif-search"></span></button>
+    </div>
+
+    <div data-role="dialog" 
+         id="inputErrorDialog" 
+         class="padding20 dialog alert" 
+         data-close-button="true" 
+         data-type="alert"
+         data-overlay="true" 
+         data-overlay-color="op-dark" 
+         data-overlay-click-close="true" 
+         style="width: auto; height: auto; visibility: hidden; left: 244.5px; top: 146.5px;">
+        <h4>Error</h4>
+        <p>
+            Please input a IMDb id! 
+        </p>
+        <span class="dialog-close-button"></span>
+    </div>
+</div>
+
+<div class="container input-area">
+    <div class="input-control modern">
+        <input type="text" ng-model='ngnum'>
+        <!-- <span class="label input-area-text">ng-</span> -->
+        <span class="informer" ng-hide="ngnum">Please input ng number</span>
+        <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
+    </div>
+    <div class="input-control modern">
+        <input type="text" ng-model='fromnum'>
+        <!-- <span class="label input-area-text">ng-</span> -->
+        <span class="informer" ng-hide="fromnum">From</span>
+        <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
+    </div>
+    <div class="input-control modern">
+        <input type="text" ng-model='tonum'>
+        <!-- <span class="label input-area-text">ng-</span> -->
+        <span class="informer" ng-hide="tonum">To</span>
+        <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
+    </div>
+    <button class="button cycle-button"ng-click="go(ngnum, fromnum, tonum)">Go</button>
+</div>
+
+<div class="container">
+    <div class="theme-list">
+        <div class="header">
+            <h1>{{themeword}}</h1>
+            <!-- <p>Click on the buttons below to show additional content. This trick is based on checkboxes and labels.</p> -->
+        </div>
+        <!-- <div class="loader more"></div> -->
+        <div class="item" ng-repeat="theme in themes">
+            <label class="input-control checkbox select-area">
+                <input type="checkbox">
+                <span class="check"></span>
+            </label>
+            <input type="checkbox" id="box-{{theme.ngram}}">
+            <label class="theme-title" for="box-{{theme.ngram}}">
+                {{theme.ngram}} has {{theme.usr_lists_number}} usr lists and {{theme.movie_number}} movies to it
+            </label>
+            <div>
+                <!-- <h3>Lorem ipsum</h3> -->
+                <ul>
+                    <li ng-repeat="(usr_list_id, usr_list_title) in theme.usr_lists track by $index">
+                        <a href="http://www.imdb.com/list/{{usr_list_id}}/" target="_blank">{{usr_list_title}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

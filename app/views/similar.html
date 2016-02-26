@@ -53,20 +53,20 @@
     <div class="info-box fg-white">
         <h3>Recommended movies</h3>
         <div class="row">
-            <div class="poster-box" ng-repeat="movie in recMovies">
+            <div class="poster-box" ng-repeat="(movie, features) in recMovies">
                 <div class="poster-box-wrap image-container">
-                    <a href="http://192.168.1.80/#/similar/{{movie[0]}}/8">
-                        <div class="poster-image" style="background-image: url(posters/{{ movie[0] }}.jpg)"></div>
+                    <a href="http://192.168.1.80/#/similar/{{movie}}/8">
+                        <div class="poster-image" style="background-image: url(posters/{{ movie }}.jpg)"></div>
                         <img src="images/poster.png" >
                         <div class="image-overlay">
-                            <div style="text-align: left" ng-repeat="reason in recReasons[movie[0]]" ng-if="reason[1] != 0">
-                                {{ reason[0] }}
+                            <div style="text-align: left" ng-repeat="(feature, score) in features" ng-if="score != 0 && feature != 'sum'">
+                                {{ feature }}
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="poster-box-id">
-                    <a href="http://www.imdb.com/title/{{movie[0]}}/" target="_blank">{{movie[0]}}</a>
+                    <a href="http://www.imdb.com/title/{{movie[0]}}/" target="_blank">{{movie}}</a>
                 </div>
             </div>
         </div>

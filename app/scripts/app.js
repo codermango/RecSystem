@@ -22,6 +22,10 @@ angular.module('RecSystemWebApp', [
             templateUrl: 'views/specday.html',
             controller: 'SpecdayCtrl'
         })
+        .when('/theme/', {
+            templateUrl: 'views/theme.html',
+            controller: 'ThemeCtrl'
+        })
         // .when('/specday/:day', {
         //     templateUrl: 'views/specday.html',
         //     controller: 'SpecdayCtrl'

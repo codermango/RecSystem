@@ -4,7 +4,7 @@ angular.module('RecSystemWebApp')
     .controller('HomeCtrl', function ($scope, $http) {
         $http({
             method: 'GET',
-            url: 'http://192.168.1.80:8888/all_movies/'
+            url: 'http://192.168.1.80:8888/allmovies/'
         }).then(function(data) {
             var allMovies = data['data']['all_movies'];
             $scope.moviesForShow = allMovies.slice(0, 64);
