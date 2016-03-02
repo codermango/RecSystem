@@ -7,29 +7,8 @@ angular.module('RecSystemWebApp')
 
         $http.get('http://192.168.1.80:8888/rec/' + $scope.movieID + '/' + $scope.recNum + '/').success(function(data) {
             console.log(data);
-
             $scope.recMovies = data;
 
-
-
-            // var sortableMovies = [];
-            // $scope.recReasons = new Object();
-            // for (var movieid in data.movie) {
-            //     sortableMovies.push([movieid, data.movie[movieid]]);
-            //     sortableMovies.sort(function(a, b) {return b[1] - a[1]});
-
-            //     var sortableReasons = [];
-            //     for (var feature in data.reason[movieid]) {
-            //         sortableReasons.push([feature, data.reason[movieid][feature]]);
-            //         // console.log(sortableReasons);
-            //     }
-            //     console.log(movieid + '    ' + sortableReasons);
-
-            //     sortableReasons.sort(function(a, b) {return b[1] - a[1]});
-            //     $scope.recReasons[movieid] = sortableReasons;
-            // }
-            // $scope.recMovies = sortableMovies;
-            // console.log($scope.recReasons);
         });
 
         $scope.recommend = function(imdbid, recNum) {

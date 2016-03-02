@@ -5,7 +5,12 @@ angular.module('RecSystemWebApp')
         $scope.search = function(word) {
 
             if (word == undefined || word.trim() == '' ) {
-                alert('Please type something!');
+                var inputErrorDialog = $("#inputErrorDialog").data('dialog');
+                if (!inputErrorDialog.element.data('opened')) {
+                    inputErrorDialog.open();
+                } else {
+                    inputErrorDialog.close();
+                }
                 return;
             }
             
@@ -28,8 +33,13 @@ angular.module('RecSystemWebApp')
 
         $scope.go = function(ngnum, fromnum, tonum) {
             $scope.themeword = '';
-            if (ngnum.trim() == '' || fromnum.trim() == '' || tonum.trim() == '' || ngnum == undefined || fromnum == undefined || tonum == undefined) {
-                alert('Something is missing!');
+            if (ngnum == undefined || fromnum == undefined || tonum == undefined || ngnum.trim() == '' || fromnum.trim() == '' || tonum.trim() == '') {
+                var inputErrorDialog = $("#inputErrorDialog").data('dialog');
+                if (!inputErrorDialog.element.data('opened')) {
+                    inputErrorDialog.open();
+                } else {
+                    inputErrorDialog.close();
+                }
                 return;
             }
 
