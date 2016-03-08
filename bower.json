@@ -11,7 +11,8 @@
     "angular-route": "1.2.6",
     "angular-chart.js": "~0.8.6",
     "bootstrap": "~3.3.6",
-    "ngInfiniteScroll": "~1.2.1"
+    "ngInfiniteScroll": "~1.2.1",
+    "metro": "~3.0.13"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",

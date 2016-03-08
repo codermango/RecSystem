@@ -17590,300 +17590,101 @@ input[type="submit"].link:active {
   font-weight: 700;
   src: local("Segoe UI Bold"), local("Open Sans Bold"), local("OpenSans-Bold"), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 }
-.listview {
+.popover {
   display: block;
-  width: 100%;
-  height: auto;
-}
-.listview:before,
-.listview:after {
-  display: table;
-  content: "";
-}
-.listview:after {
-  clear: both;
-}
-.listview .list-group {
-  display: block;
-  width: 100%;
+  min-width: 12.5rem;
   height: auto;
   position: relative;
-}
-.listview .list-group:before,
-.listview .list-group:after {
-  display: table;
-  content: "";
-}
-.listview .list-group:after {
-  clear: both;
-}
-.listview .list-group .list-group-toggle {
-  display: block;
-  padding-left: 16px;
-  cursor: pointer;
-  position: relative;
-  margin-top: 10px;
-}
-.listview .list-group .list-group-toggle:before {
-  position: absolute;
-  display: block;
-  left: 0;
-  top: -3px;
-  height: 0;
-  content: '';
-  width: 0;
-  border-left: 7px solid transparent;
-  border-top: 7px solid transparent;
-  border-bottom: 7px #1ba1e2 solid;
-}
-.listview .list-group .list-group-content {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-top: 1rem;
-}
-.listview .list-group .list-group-content:before,
-.listview .list-group .list-group-content:after {
-  display: table;
-  content: "";
-}
-.listview .list-group .list-group-content:after {
-  clear: both;
-}
-.listview .list-group.collapsed > .list-group-toggle:before {
-  left: -4px;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  border-bottom-color: #999999;
-}
-.listview .list-group.collapsed:hover > .list-group-toggle:before {
-  border-bottom-color: #1b6eae;
-}
-.listview .list {
-  display: block;
-  width: 100%;
-  padding: 8px 8px 4px 48px;
-  border: 1px transparent solid;
-  cursor: pointer;
-  height: 50px;
-  border-bottom-color: #eeeeee;
-  position: relative;
-}
-.listview .list:last-child {
-  border-bottom-color: transparent;
-}
-.listview .list .list-icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 8px;
-  width: 32px;
-  height: 32px;
-  font-size: 32px;
-  text-align: center;
-}
-.listview .list .list-data {
-  display: block;
-  margin: 4px 0;
-}
-.listview.list-type-icons .list {
-  display: block;
-  float: left;
-  padding: 0;
-  width: 105px;
-  height: 116px;
-  border-color: transparent;
-  margin: .625rem;
-  text-align: center;
-}
-.listview.list-type-icons .list .list-title {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 4px;
-  height: auto;
-  text-align: center;
-}
-.listview.list-type-icons .list .list-icon {
-  width: 80px;
-  height: 80px;
-  font-size: 80px;
-  text-align: center;
-  left: 50%;
-  margin-left: -40px;
-}
-.listview.list-type-icons .list .list-data {
-  display: none;
-}
-.listview.list-type-tiles .list {
-  display: block;
-  float: left;
-  padding: 8px 8px 4px 48px;
-  width: 250px;
-  height: 52px;
-  border-color: transparent;
-  margin: .625rem;
-}
-.listview.list-type-tiles .list .list-title {
-  margin-top: 8px;
-  display: block;
-}
-.listview.list-type-tiles .list .list-icon {
-  width: 48px;
-  height: 48px;
-  font-size: 48px;
-  text-align: center;
-  top: 0;
-  left: 0;
-  margin: 2px;
-}
-.listview.list-type-tiles .list .list-data {
-  display: none;
-}
-.listview.list-type-listing .list {
-  display: block;
-  float: left;
-  padding: 4px 2px 4px 24px;
-  width: auto;
-  height: auto;
-  border-color: transparent;
-  margin: 1px;
-}
-.listview.list-type-listing .list .list-title {
-  display: block;
-}
-.listview.list-type-listing .list .list-icon {
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  text-align: center;
-  top: 0;
-  left: 0;
-  margin: 1px;
-}
-.listview.list-type-listing .list .list-data {
-  display: none;
-}
-.listview .list.active {
-  background-color: #d1e8ff;
-  border-color: #64b4db;
-}
-.listview .list:hover {
-  background-color: #e5f3fb;
-  border-color: #64b4db;
-}
-.listview-outlook {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.listview-outlook:before,
-.listview-outlook:after {
-  display: table;
-  content: "";
-}
-.listview-outlook:after {
-  clear: both;
-}
-.listview-outlook .list {
-  display: block;
-  width: 100%;
-  border: 0;
-  border-bottom: 1px #eeeeee solid;
-  padding: 2px 0;
-  color: #555555;
-  margin-bottom: 0;
-  background-color: transparent;
-}
-.listview-outlook .list .list-content {
-  margin: 2px 0;
-  padding: 2px 20px;
-  font-size: 1rem;
-  color: inherit;
-  border-left: 3px transparent solid;
-}
-.listview-outlook .list .list-content .list-title,
-.listview-outlook .list .list-content .list-subtitle,
-.listview-outlook .list .list-content .list-remark {
-  width: 100%;
-  display: block;
-  color: inherit;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.listview-outlook .list .list-content .list-title {
-  line-height: 1;
-}
-.listview-outlook .list .list-content .list-subtitle {
-  font-size: .75rem;
-  line-height: 1.2;
-  font-weight: 500;
-  color: #0067cb;
-}
-.listview-outlook .list .list-content .list-remark {
-  font-weight: normal;
-  line-height: 1.2;
-  font-size: .625rem;
-  color: #999999;
-}
-.listview-outlook .list:hover {
   background-color: #eeeeee;
-  outline: none;
+  padding: 1.25rem;
 }
-.listview-outlook .list:hover .list-content {
-  border-left: 3px transparent solid;
+.popover * {
+  color: inherit;
 }
-.listview-outlook .list.marked .list-content {
-  border-left: 3px #1b6eae solid;
+.popover.popover-shadow {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 }
-.listview-outlook .list:active,
-.listview-outlook .list:focus,
-.listview-outlook .list.active {
-  background-color: #cde6f7;
-  outline: 1px #999999 dotted;
-  color: #555555;
+.popover:before {
+  content: "";
+  width: .625rem;
+  height: .625rem;
+  display: block;
+  position: absolute;
+  background-color: inherit;
+  left: -0.3125rem;
+  top: 50%;
+  margin-top: -0.3125rem;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
-.listview-outlook .list-group {
+.popover.marker-on-top:before {
+  top: 0;
+  left: 50%;
+  margin-left: -0.3125rem;
+}
+.popover.marker-on-right:before {
+  top: 50%;
+  margin-top: -0.3125rem;
+  left: 100%;
+  margin-left: -0.3125rem;
+}
+.popover.marker-on-bottom:before {
+  top: 100%;
+  margin-left: -0.3125rem;
+  left: 50%;
+  margin-top: -0.3125rem;
+}
+.progress,
+.progress-bar {
   display: block;
   position: relative;
+  width: 100%;
+  height: auto;
+  margin: .625rem 0;
+  background: #eeeeee;
+  overflow: hidden;
 }
-.listview-outlook .list-group .list-group-toggle {
-  display: block;
-  margin-bottom: 2px;
-  background-color: #f0f0f0;
-  padding: 4px 20px 4px 24px;
-  font-size: .875rem;
-  font-weight: 500;
-  color: #333333;
-  cursor: pointer;
+.progress:before,
+.progress-bar:before,
+.progress:after,
+.progress-bar:after {
+  display: table;
+  content: "";
 }
-.listview-outlook .list-group .list-group-toggle:before {
-  position: absolute;
+.progress:after,
+.progress-bar:after {
+  clear: both;
+}
+.progress .bar,
+.progress-bar .bar {
+  position: relative;
   display: block;
-  left: 10px;
-  top: 2px;
-  content: '';
+  float: left;
   width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid black;
+  background-color: #1ba1e2;
+  z-index: 1;
+  text-align: center;
+  height: .625rem;
+  line-height: .625rem;
+  color: #ffffff;
 }
-.listview-outlook .list-group .list-group-content {
-  display: block;
+.progress.small > .bar,
+.progress-bar.small > .bar {
+  height: .3125rem;
 }
-.listview-outlook .list-group.collapsed .list-group-toggle:before {
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  margin-left: -4px;
+.progress.large > .bar,
+.progress-bar.large > .bar {
+  height: 1rem;
 }
-.listview-outlook .list-group .list-group-toggle:hover:before {
-  border-bottom-color: #0067cb;
+.progress.gradient-bar .bar,
+.progress-bar.gradient-bar .bar {
+  background: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+}
+.progress.ani .bar,
+.progress-bar.ani .bar {
+  animation: ani-bg-stripes 2s linear infinite;
 }
 body {
   padding-top: 0;
@@ -18005,9 +17806,19 @@ label {
   background-size: cover;
   background-position: center;
 }
+.poster-box .image-overlay {
+  font-size: 0.7rem;
+  color: #fa6800;
+  font-weight: 600;
+  background-color: rgba(18, 18, 19, 0.89);
+}
 .poster-box img {
   height: 100%;
   width: 100%;
+}
+#reason-chart {
+  display: none;
+  position: absolute;
 }
 .theme-list {
   width: 100%;
@@ -18089,14 +17900,5 @@ label {
   padding: 15px;
   background-color: #ffffff;
   text-align: left;
-}
-/* Loader with three blocks */
-.loader,
-.loader:before,
-.loader:after {
-  width: 100%;
-  height: 10px;
-  position: absolute;
-  z-index: 10000;
 }
 /*# sourceMappingURL=/styles/main.css.map */
