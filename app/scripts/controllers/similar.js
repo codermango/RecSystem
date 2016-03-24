@@ -4,12 +4,69 @@ angular.module('RecSystemWebApp')
     .controller('SimilarCtrl', function ($scope, $http, $routeParams, $location) {
         $scope.movieID = $routeParams.movieid;
         $scope.recNum = $routeParams.recnum;
+        $scope.hasColorData = false;
 
         $http.get('http://192.168.1.80:8888/rec/' + $scope.movieID + '/' + $scope.recNum + '/').success(function(data) {
             console.log(data);
             $scope.recMovies = data;
 
         });
+
+
+        $http.get('../../data/' + $scope.movieID + '.json').success(function(data) {
+            // console.log(data);
+            $scope.hasColorData = true;
+            let colorData = data[$scope.movieID];
+            let points = [];
+            let xs = [];
+            let ys = [];
+            let zs = [];
+            let axis = {
+                minX: 0,
+                maxX: 255,
+                minY: 0,
+                maxY: 255,
+                minZ: 0,
+                maxZ: 255
+            }
+            points = colorData.map(function(colorItem) {
+                let color = "rgb(" + colorItem.r + ", " + colorItem.g + ", " + colorItem.b + ")";
+                let point = {
+                    x: colorItem.L,
+                    y: colorItem.A,
+                    z: colorItem.B,
+                    fillColor: color
+                };
+                return point;
+            });
+
+            xs = points.map(function(point) {
+                return point.x;
+            });
+            ys = points.map(function(point) {
+                return point.y;
+            });
+            zs = points.map(function(point) {
+                return point.z;
+            });
+            axis = {
+                minX: Math.min(...xs),
+                maxX: Math.max(...xs),
+                minY: Math.min(...ys),
+                maxY: Math.max(...ys),
+                minZ: Math.min(...zs),
+                maxZ: Math.max(...zs)
+            }
+
+            console.log(axis);
+            colorChart('color-chart', points, axis);
+            
+        }).error(function(data) {
+            $scope.hasColorData = false;
+        });
+
+
+
 
         $scope.recommend = function(imdbid, recNum) {
             if (imdbid == undefined || imdbid.trim() == '' ) {
@@ -62,11 +119,4 @@ angular.module('RecSystemWebApp')
         $scope.hideChart = function() {
             $("#reason-chart").css('display', 'none');
         }
-
-        // $scope.labels = ["genre", "actor"];
-        // $scope.data = [
-        //     [1.3199999999999998, 1.6]
-        // ];
-
-
     });

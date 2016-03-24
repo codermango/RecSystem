@@ -50,6 +50,9 @@
         </div>
     </div> -->
 
+
+    <div ng-show="hasColorData" id="color-chart"></div>
+
     <div class="info-box fg-white">
         <h3>Recommended movies</h3>
         <div class="row">
@@ -76,7 +79,8 @@
             chart-data="data" 
             chart-labels="labels"
             chart-options="{
-                
+                pointLabelFontColor : '#093A10',
+                pointLabelFontStyle : 'bolder'
             }"
             height="224"
             width="224">

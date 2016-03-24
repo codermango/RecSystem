@@ -17901,4 +17901,10 @@ label {
   background-color: #ffffff;
   text-align: left;
 }
+#color-chart {
+  height: 900px;
+  width: 1170px;
+  max-width: 1170px;
+  margin: 0 auto;
+}
 /*# sourceMappingURL=/styles/main.css.map */
