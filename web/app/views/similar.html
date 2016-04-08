@@ -58,7 +58,7 @@
         <div class="row">
             <div id="div-{{movie}}" class="poster-box" ng-repeat="(movie, features) in recMovies" ng-mouseenter="showChart($event)" ng-mouseleave="hideChart()">
                 <div class="poster-box-wrap image-container">
-                    <a href="http://0.0.0.0:9999/#/similar/{{movie}}/8">
+                    <a href="http://192.168.1.80:{{web_port}}/#/similar/{{movie}}/8">
                         <div class="poster-image" style="background-image: url(http://192.168.1.80:7777/{{ movie }}.jpg)"></div>
                         <img src="images/poster.png" >
                     </a>

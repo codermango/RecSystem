@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('RecSystemWebApp')
-    .controller('HomeCtrl', function ($scope, $http) {
+    .controller('HomeCtrl', function ($scope, $http, ENV) {
+        $scope.server = ENV.server;
         $http({
             method: 'GET',
-            url: 'http://localhost:8887/allmovies/'
+            url: $scope.server + '/allmovies/'
         }).then(function(data) {
             var allMovies = data['data']['all_movies'];
             $scope.moviesForShow = allMovies.slice(0, 64);

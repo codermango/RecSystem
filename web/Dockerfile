@@ -16,4 +16,5 @@ RUN npm install grunt-cli --save-dev
 RUN npm install bower
 RUN node_modules/bower/bin/bower --allow-root install
 
-CMD sudo node_modules/grunt-cli/bin/grunt serve
+# deployment
+CMD sudo node_modules/grunt-cli/bin/grunt serve --WEB_PORT=80 --SERVER="http://192.168.1.80:8887"

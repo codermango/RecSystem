@@ -25,6 +25,37 @@ module.exports = function (grunt) {
             dist: 'dist'
         },
 
+        ngconstant: {
+            options: {
+                space: '',
+                name: 'config'
+            },
+            development: {
+                options: {
+                    dest: '<%= yeoman.app %>/scripts/config.js'
+                },
+                constants: {
+                    ENV: {
+                        name: 'development',
+                        web_port: grunt.option("WEB_PORT"),
+                        server: grunt.option("SERVER")
+                    }
+                }
+            },
+            production: {
+                options: {
+                    dest: '<%= yeoman.dist %>/scripts/config.js'
+                },
+                constants: {
+                    ENV: {
+                        name: 'production',
+                        web_port: grunt.option("WEB_PORT"),
+                        server: grunt.option("SERVER")
+                    }
+                }
+            }
+        },
+
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             js: {
@@ -65,7 +96,7 @@ module.exports = function (grunt) {
         // The actual grunt server settings
         connect: {
             options: {
-                port: 9999,
+                port: grunt.option("WEB_PORT") || 80,
                 // port: 81,
                 // Change this to '0.0.0.0' to access the server from outside.
                 hostname: '0.0.0.0',
@@ -351,6 +382,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
+            'ngconstant:development',
             //'bower-install',
             'less',
             'concurrent:server',

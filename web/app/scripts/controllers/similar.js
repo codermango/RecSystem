@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('RecSystemWebApp')
-    .controller('SimilarCtrl', function ($scope, $http, $routeParams, $location) {
+    .controller('SimilarCtrl', function ($scope, $http, $routeParams, $location, ENV) {
         $scope.movieID = $routeParams.movieid;
         $scope.recNum = $routeParams.recnum;
         $scope.hasColorData = false;
+        $scope.server = ENV.server;
+        $scope.web_port = ENV.web_port;
 
-        $http.get('http://localhost:8887/rec/' + $scope.movieID + '/' + $scope.recNum + '/').success(function(data) {
+        $http.get($scope.server + '/rec/' + $scope.movieID + '/' + $scope.recNum + '/').success(function(data) {
             console.log(data);
             $scope.recMovies = data;
 
