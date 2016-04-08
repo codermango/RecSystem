@@ -75,7 +75,8 @@ function colorChart(elementID, points, axis) {
             //     {x: 1, y: 6, z: 5, fillColor: "rgb(51, 255, 51)"}
             // ]
             data: points,
-            colorByPoint: true
+            colorByPoint: true,
+            turboThreshold: 5000
         }]
     });
 

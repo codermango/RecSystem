@@ -6,14 +6,14 @@ angular.module('RecSystemWebApp')
         $scope.recNum = $routeParams.recnum;
         $scope.hasColorData = false;
 
-        $http.get('http://192.168.1.80:8888/rec/' + $scope.movieID + '/' + $scope.recNum + '/').success(function(data) {
+        $http.get('http://localhost:8887/rec/' + $scope.movieID + '/' + $scope.recNum + '/').success(function(data) {
             console.log(data);
             $scope.recMovies = data;
 
         });
 
 
-        $http.get('../../data/' + $scope.movieID + '.json').success(function(data) {
+        $http.get('../../data/plot_data/' + $scope.movieID + '.json').success(function(data) {
             // console.log(data);
             $scope.hasColorData = true;
             let colorData = data[$scope.movieID];
@@ -33,8 +33,8 @@ angular.module('RecSystemWebApp')
                 let color = "rgb(" + colorItem.r + ", " + colorItem.g + ", " + colorItem.b + ")";
                 let point = {
                     x: colorItem.L,
-                    y: colorItem.A,
-                    z: colorItem.B,
+                    y: colorItem.B,
+                    z: colorItem.A,
                     fillColor: color
                 };
                 return point;

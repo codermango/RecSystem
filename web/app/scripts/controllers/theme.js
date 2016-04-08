@@ -16,9 +16,9 @@ angular.module('RecSystemWebApp')
             
 
             console.log(word);
-            var url = 'http://192.168.1.80:8888/theme/' + word + '/';
+            var url = 'http://localhost:8887/theme/' + word + '/';
 
-            $http.get(url).success(function(data) {
+            $http.get(url).then(function(data) {
                 console.log(data.length);
                 if (data.length == 0) {
                     $scope.themeword = "Nothing found!";
@@ -27,6 +27,8 @@ angular.module('RecSystemWebApp')
                 }
                 $scope.themeword = word;
                 $scope.themes = data;
+            }, function(data) {
+                $scope.themeword = "Sorry, database is not available currently!";
             });
             
         };
@@ -43,8 +45,10 @@ angular.module('RecSystemWebApp')
                 return;
             }
 
-            $http.get('http://192.168.1.80:8888/theme/' + ngnum + '/' + fromnum + '/' + tonum + '/').success(function(data) {
+            $http.get('http://localhost:8887/theme/' + ngnum + '/' + fromnum + '/' + tonum + '/').then(function(data) {
                 $scope.themes = data;
+            }, function(data) {
+                $scope.themeword = "Sorry, database is not available currently!";
             });
 
         }

@@ -13,21 +13,21 @@ angular.module("RecSystemWebApp")
     // }];
 
 
-    $http.get('http://192.168.1.80:8888/holiday_keyword/').success(function(data) {
+    $http.get('http://localhost:8887/holiday_keyword/').success(function(data) {
         $scope.selectionItems = [];
         for (var key in data) {
             $scope.selectionItems.push({name: key, value: key + ' ' + data[key]});
         }
         $scope.selectedItem = $scope.selectionItems[0];
 
-        $http.get('http://192.168.1.80:8888/special_day/' + $scope.selectedItem.name + '/').success(function(data) {
+        $http.get('http://localhost:8887/special_day/' + $scope.selectedItem.name + '/').success(function(data) {
             $scope.specdayMovies = data['specday_movies'];
         });
     });
 
     $scope.selectItem = function(selectedItem) {
         console.log($scope.selectedItem);
-        $http.get('http://192.168.1.80:8888/special_day/' + $scope.selectedItem.name + '/').success(function(data) {
+        $http.get('http://localhost:8887/special_day/' + $scope.selectedItem.name + '/').success(function(data) {
             $scope.specdayMovies = data['specday_movies'];
         });
     }

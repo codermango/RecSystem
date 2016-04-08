@@ -1,0 +1,16 @@
+version: '2'
+services:
+    recsystem_api:
+        build: ./api
+        network_mode: 'host'
+        # volumes:
+        # #     - .:/recsystem/api
+
+    recsystem_web:
+        build: ./web
+        network_mode: 'host'
+        # ports:
+        #     - "80:9999"
+        # volumes:
+        #     - .:/recsystem/web
+
