@@ -100,7 +100,7 @@ module.exports = function (grunt) {
                 // port: 81,
                 // Change this to '0.0.0.0' to access the server from outside.
                 hostname: '0.0.0.0',
-                livereload: 35727
+                livereload: 35726
             },
             livereload: {
                 options: {
@@ -173,14 +173,6 @@ module.exports = function (grunt) {
                     src: '{,*/}*.css',
                     dest: '.tmp/styles/'
                 }]
-            }
-        },
-
-        // Automatically inject Bower components into the app
-        'bower-install': {
-            app: {
-                html: '<%= yeoman.app %>/index.html',
-                ignorePath: '<%= yeoman.app %>/'
             }
         },
 
@@ -383,7 +375,6 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'ngconstant:development',
-            //'bower-install',
             'less',
             'concurrent:server',
             'autoprefixer',
@@ -392,10 +383,6 @@ module.exports = function (grunt) {
         ]);
     });
 
-    grunt.registerTask('server', function () {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve']);
-    });
 
     grunt.registerTask('test', [
         'clean:server',
@@ -408,7 +395,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'bower-install',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
