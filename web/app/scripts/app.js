@@ -27,6 +27,14 @@ angular.module('RecSystemWebApp', [
             templateUrl: 'views/theme.html',
             controller: 'ThemeCtrl'
         })
+        .when('/userbase/', {
+            templateUrl: 'views/userbase.html',
+            controller: 'UserbaseCtrl'
+        })
+        // .when('/userbase/:userid/:recnum', {
+        //     templateUrl: 'views/userbase.html',
+        //     controller: 'UserbaseCtrl'
+        // })
         // .when('/specday/:day', {
         //     templateUrl: 'views/specday.html',
         //     controller: 'SpecdayCtrl'

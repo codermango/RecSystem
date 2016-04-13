@@ -56,7 +56,41 @@
     <div class="info-box fg-white">
         <h3>Recommended movies</h3>
         <div class="row">
-            <div id="div-{{movie}}" class="poster-box" ng-repeat="(movie, features) in recMovies" ng-mouseenter="showChart($event)" ng-mouseleave="hideChart()">
+            <div class="poster-box" ng-repeat="(movie, features) in recMovies.all" ng-mouseenter="showChart($event)" ng-mouseleave="hideChart()">
+                <div class="poster-box-wrap image-container">
+                    <a href="http://192.168.1.80:{{web_port}}/#/similar/{{movie}}/8">
+                        <div class="poster-image" style="background-image: url(http://192.168.1.80:7777/{{ movie }}.jpg)"></div>
+                        <img src="images/poster.png" >
+                    </a>
+                </div>
+                <div class="poster-box-id">
+                    <a href="http://www.imdb.com/title/{{movie[0]}}/" target="_blank">{{movie}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-box fg-white">
+        <h3>Recommended movies based on basic info</h3>
+        <div class="row">
+            <div class="poster-box" ng-repeat="(movie, features) in recMovies.basic" ng-mouseenter="showChart($event)" ng-mouseleave="hideChart()">
+                <div class="poster-box-wrap image-container">
+                    <a href="http://192.168.1.80:{{web_port}}/#/similar/{{movie}}/8">
+                        <div class="poster-image" style="background-image: url(http://192.168.1.80:7777/{{ movie }}.jpg)"></div>
+                        <img src="images/poster.png" >
+                    </a>
+                </div>
+                <div class="poster-box-id">
+                    <a href="http://www.imdb.com/title/{{movie[0]}}/" target="_blank">{{movie}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-box fg-white">
+        <h3>Recommended movies based only on allmovie features</h3>
+        <div class="row">
+            <div class="poster-box" ng-repeat="(movie, features) in recMovies.allmovie" ng-mouseenter="showChart($event)" ng-mouseleave="hideChart()">
                 <div class="poster-box-wrap image-container">
                     <a href="http://192.168.1.80:{{web_port}}/#/similar/{{movie}}/8">
                         <div class="poster-image" style="background-image: url(http://192.168.1.80:7777/{{ movie }}.jpg)"></div>
@@ -82,8 +116,8 @@
                 pointLabelFontColor : '#093A10',
                 pointLabelFontStyle : 'bolder'
             }"
-            height="224"
-            width="224">
+            height="500"
+            width="500">
         </canvas> 
 
     </div>

@@ -100,8 +100,10 @@ angular.module('RecSystemWebApp')
             // console.log($scope.data);
 
             // get the position of current div
-            let currentDiv = $("#div-" + this.movie);
-            // console.log(currentDiv.offset());
+            // let currentDiv = $("#div-" + this.movie);
+            let currentDiv = $(e.currentTarget);
+            // console.log(currentDiv[0]);
+            // console.log($(e.currentTarget));
             // console.log(currentDiv.width());
 
             Chart.defaults.global.tooltipFontColor = "#FA6800";

@@ -37,15 +37,19 @@ def get_movieid_sim_dict(movie, feature):
     given_feature_list = movie[feature]
     # print feature_list
     for movie in allmovies:
-        feature_list = movie[feature]
-        cosine_value = cosine_of_lists(given_feature_list, feature_list)
+        try:
+            feature_list = movie[feature]
+            cosine_value = cosine_of_lists(given_feature_list, feature_list)
+        except KeyError:
+            cosine_value = 0
+        
         movieid_sim_dict[movie['imdbID']] = cosine_value
 
     # pprint(movieid_sim_dict)
     return movieid_sim_dict
 
 
-def recommend(input_movie, num_to_rec):
+def recommend(input_movie, num_to_rec, feature_weight=FEATURE_WEIGHT):
     """Return recommended movies and the features that contribute most in this recommendation."""
     # First check if the id is existed.
     assert COLLECTION.find({'imdbID': input_movie}).count() != 0, input_movie + ' is not in our database!'
@@ -54,9 +58,9 @@ def recommend(input_movie, num_to_rec):
 
     feature_movieid_sim_dict = {} # this is for record recommendation reasons
     final_counter = Counter()
-    for feature in FEATURE_WEIGHT:
+    for feature in feature_weight:
         movieid_sim_dict = get_movieid_sim_dict(movie, feature)
-        movieid_sim_dict.update((x, y * FEATURE_WEIGHT[feature]) for x, y in movieid_sim_dict.items())
+        movieid_sim_dict.update((x, y * feature_weight[feature]) for x, y in movieid_sim_dict.items())
         feature_movieid_sim_dict[feature] = movieid_sim_dict
         final_counter += Counter(movieid_sim_dict)
 
@@ -68,7 +72,7 @@ def recommend(input_movie, num_to_rec):
     for movieid, simscore in final_counter:
         feature_sim = {}
         feature_sim['sum'] = simscore
-        for feature in FEATURE_WEIGHT:
+        for feature in feature_weight:
             feature_sim[feature] = feature_movieid_sim_dict[feature][movieid]
         detail_result_counter[movieid] = feature_sim
 
