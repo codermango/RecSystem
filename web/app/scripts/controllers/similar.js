@@ -88,7 +88,7 @@ angular.module('RecSystemWebApp')
             let feature_labels = [];
             let feature_values = [];
             for (let key in this.features) {
-                if (key !== 'sum') {
+                if (key !== 'sum' && key !== 'words') {
                     feature_labels.push(key);
                     feature_values.push(this.features[key]);
                 }
@@ -97,7 +97,7 @@ angular.module('RecSystemWebApp')
             $scope.data = [feature_values];
 
             // console.log($scope.labels);
-            // console.log($scope.data);
+            console.log($scope.data);
 
             // get the position of current div
             // let currentDiv = $("#div-" + this.movie);
