@@ -113,3 +113,9 @@ function colorChart(elementID, points, axis) {
         });
     });
 }
+
+
+
+function featureChart() {
+    
+}

@@ -27,7 +27,8 @@ angular.module('RecSystemWebApp')
                     return;
                 }
                 $scope.themeword = word;
-                $scope.themes = data;
+                $scope.themes = data['data'];
+                // console.log($scope.themes);
             }, function(data) {
                 $scope.themeword = "Sorry, database is not available currently!";
             });
@@ -47,7 +48,7 @@ angular.module('RecSystemWebApp')
             }
 
             $http.get($scope.server + '/theme/' + ngnum + '/' + fromnum + '/' + tonum + '/').then(function(data) {
-                $scope.themes = data;
+                $scope.themes = data['data'];
             }, function(data) {
                 $scope.themeword = "Sorry, database is not available currently!";
             });

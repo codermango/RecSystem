@@ -6,7 +6,7 @@ from text_preprocess import TitlePreprocessor
 REDIS_HOST = '192.168.1.60'
 PORT = 6379
 
-MONGO_HOST = '192.168.1.67'
+MONGO_HOST = '192.168.1.60'
 MONGO_PORT = 27017
 mongo_client = MongoClient(MONGO_HOST, MONGO_PORT)
 

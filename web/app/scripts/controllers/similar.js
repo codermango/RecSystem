@@ -10,13 +10,30 @@ angular.module('RecSystemWebApp')
 
         $http.get($scope.server + '/rec/' + $scope.movieID + '/' + $scope.recNum + '/').success(function(data) {
             console.log(data);
-            $scope.recMovies = data;
+            // $scope.recMovies = data;
 
+            let movies = {weighted: [], unweighted: []};
+
+            for (let movie in data.weighted) {
+                // console.log(movie);
+
+                movies['weighted'].push({movieid: movie, features: data.weighted[movie]});
+            }
+
+            for (let movie in data.unweighted) {
+                // console.log(movie);
+
+                movies['unweighted'].push({movieid: movie, features: data.unweighted[movie]});
+            }
+            console.log(movies);
+
+            $scope.recMovies = movies;
         });
 
 
         $http.get('../../data/plot_data/' + $scope.movieID + '.json').success(function(data) {
             // console.log(data);
+
             $scope.hasColorData = true;
             let colorData = data[$scope.movieID];
             let points = [];
@@ -61,7 +78,10 @@ angular.module('RecSystemWebApp')
             }
 
             console.log(axis);
+            
             colorChart('color-chart', points, axis);
+
+            
             
         }).error(function(data) {
             $scope.hasColorData = false;
@@ -84,43 +104,118 @@ angular.module('RecSystemWebApp')
         };
 
 
-        $scope.showChart = function(e) {
+        $scope.showFeatureChart = function(e) {
+
             let feature_labels = [];
             let feature_values = [];
-            for (let key in this.features) {
+            console.log(this);
+            for (let key in this.movie.features) {
                 if (key !== 'sum' && key !== 'words') {
                     feature_labels.push(key);
-                    feature_values.push(this.features[key]);
+                    feature_values.push(this.movie.features[key]);
                 }
             }
-            $scope.labels = feature_labels;
-            $scope.data = [feature_values];
 
-            // console.log($scope.labels);
-            console.log($scope.data);
-
-            // get the position of current div
-            // let currentDiv = $("#div-" + this.movie);
             let currentDiv = $(e.currentTarget);
-            // console.log(currentDiv[0]);
-            // console.log($(e.currentTarget));
-            // console.log(currentDiv.width());
+            let featureChartDiv = $("#feature-chart");
 
-            Chart.defaults.global.tooltipFontColor = "#FA6800";
-            Chart.defaults.global.tooltipFontSize = 58;
-            let chartDiv = $("#reason-chart");
+            featureChartDiv.highcharts({
 
-            chartDiv.css('display', 'block');
-            let left = currentDiv.offset()['left'] + currentDiv.outerWidth() / 2 - chartDiv.outerWidth() / 2;
-            let top = currentDiv.offset()['top'] - chartDiv.outerHeight();
-            // console.log(left + " " + top); 
-            // console.log(chartDiv.height());
-            chartDiv.offset({ top: top, left: left });
+                chart: {
+                    polar: true,
+                    type: 'line'
+                },
+
+                // title: {
+                //     text: 'Features',
+                //     x: -80
+                // },
+
+                pane: {
+                    size: '80%'
+                },
+
+                xAxis: {
+                    categories: feature_labels,
+                    tickmarkPlacement: 'on',
+                    lineWidth: 0
+                },
+
+                yAxis: {
+                    gridLineInterpolation: 'polygon',
+                    lineWidth: 0,
+                    min: 0
+                },
+
+                tooltip: {
+                    shared: true,
+                    pointFormat: '<span style="color:{series.color}"><b>${point.y:,.0f}</b><br/>'
+                },
+
+                // legend: {
+                //     align: 'right',
+                //     verticalAlign: 'top',
+                //     y: 70,
+                //     layout: 'vertical'
+                // },
+
+                series: [{
+                    name: 'Recommendation',
+                    data: feature_values,
+                    pointPlacement: 'on'
+                }]
+
+            });
+            featureChartDiv.css('display', 'block');
+            let left = currentDiv.offset()['left'] + currentDiv.outerWidth() / 2 - featureChartDiv.outerWidth() / 2;
+            let top = currentDiv.offset()['top'] - featureChartDiv.outerHeight();
+            featureChartDiv.offset({ top: top, left: left });
 
 
         }
 
-        $scope.hideChart = function() {
-            $("#reason-chart").css('display', 'none');
+        $scope.hideFeatureChart = function(e) {
+            $("#feature-chart").css('display', 'none');
         }
+
+
+        // $scope.showChart = function(e) {
+        //     let feature_labels = [];
+        //     let feature_values = [];
+        //     for (let key in this.features) {
+        //         if (key !== 'sum' && key !== 'words') {
+        //             feature_labels.push(key);
+        //             feature_values.push(this.features[key]);
+        //         }
+        //     }
+        //     $scope.labels = feature_labels;
+        //     $scope.data = [feature_values];
+
+        //     // console.log($scope.labels);
+        //     console.log($scope.data);
+
+        //     // get the position of current div
+        //     // let currentDiv = $("#div-" + this.movie);
+        //     let currentDiv = $(e.currentTarget);
+        //     // console.log(currentDiv[0]);
+        //     // console.log($(e.currentTarget));
+        //     // console.log(currentDiv.width());
+
+        //     Chart.defaults.global.tooltipFontColor = "#FA6800";
+        //     Chart.defaults.global.tooltipFontSize = 58;
+        //     let chartDiv = $("#reason-chart");
+
+        //     chartDiv.css('display', 'block');
+        //     let left = currentDiv.offset()['left'] + currentDiv.outerWidth() / 2 - chartDiv.outerWidth() / 2;
+        //     let top = currentDiv.offset()['top'] - chartDiv.outerHeight();
+        //     // console.log(left + " " + top); 
+        //     // console.log(chartDiv.height());
+        //     chartDiv.offset({ top: top, left: left });
+
+
+        // }
+
+        // $scope.hideChart = function() {
+        //     $("#reason-chart").css('display', 'none');
+        // }
     });
