@@ -11,9 +11,9 @@ class SimilarMoviesHandler(tornado.web.RequestHandler):
         self.set_header("Access-Control-Allow-Methods", "GET")
 
         allmovie_feature_weight_dict = {
-            # 'allmovie_attributes': 1,
+            'allmovie_attributes': 1,
             'allmovie_moods': 1,
-            # 'allmovie_keywords': 1,
+            'allmovie_keywords': 1,
             'allmovie_subgenres': 1,
             'allmovie_themes': 1
         }

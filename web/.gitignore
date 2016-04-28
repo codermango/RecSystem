@@ -6,4 +6,6 @@ app/bower_components
 app/posters
 app/data
 app/scripts/config.js
+app/styles/main.css
+app/styles/main.css.map
 npm-debug.log
