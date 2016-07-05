@@ -11,29 +11,29 @@
                 </div>
                 <button class="button" ng-click="updateCredit(movieid, startSec, endSec, false)">Confirm</button>
             </div>
-            <div class="container input-area">
-                <div class="input-control modern">
-                    <input type="text" ng-model='startSecond'>
-                    <!-- <span class="label input-area-text">ng-</span> -->
-                    <span class="informer" ng-hide="startSecond">Start</span>
-                    <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
-                </div>
+            <!--<div class="container input-area">-->
+                <!--<div class="input-control modern">-->
+                    <!--<input type="text" ng-model='startSecond'>-->
+                    <!--&lt;!&ndash; <span class="label input-area-text">ng-</span> &ndash;&gt;-->
+                    <!--<span class="informer" ng-hide="startSecond">Start</span>-->
+                    <!--&lt;!&ndash; <span class="placeholder" ng-hide="ngnum">Input ng number</span> &ndash;&gt;-->
+                <!--</div>-->
 
-                <div class="input-control modern">
-                    <input type="text" ng-model='endSecond'>
-                    <!-- <span class="label input-area-text">ng-</span> -->
-                    <span class="informer" ng-hide="endSecond">End</span>
-                    <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
-                </div>
-                <button class="button" ng-click="updateCredit(movieid, startSecond, endSecond, true)">Update</button>
-            </div>
+                <!--<div class="input-control modern">-->
+                    <!--<input type="text" ng-model='endSecond'>-->
+                    <!--&lt;!&ndash; <span class="label input-area-text">ng-</span> &ndash;&gt;-->
+                    <!--<span class="informer" ng-hide="endSecond">End</span>-->
+                    <!--&lt;!&ndash; <span class="placeholder" ng-hide="ngnum">Input ng number</span> &ndash;&gt;-->
+                <!--</div>-->
+                <!--<button class="button" ng-click="updateCredit(movieid, startSecond, endSecond, true)">Update</button>-->
+            <!--</div>-->
         </div>
 
         <div ng-if="frameImages != []" class="row frame-area">
             <div class="poster-box" ng-repeat="image in frameImages">
                 <!--<div class="poster-box-wrap">-->
                     <!--<div style="background-image: url(data/credits/{{movieid}}/{{image}})"></div>-->
-                    <img src="/data/credits/{{movieid}}/{{image}}.jpg" >
+                    <img src="/data/credits/{{movieid}}/{{image}}.jpg" ng-click="selectCredits(image, $event)" />
                 <!--</div>-->
                 <div ng-if="image == startSec" class="poster-box-id credit-start-highlight">
                     {{image}}

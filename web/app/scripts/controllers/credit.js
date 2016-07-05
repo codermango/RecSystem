@@ -30,4 +30,46 @@ angular.module('RecSystemWebApp')
             });
         }
 
+        let selectedCredits = [];
+        let selectedEles = []
+        $scope.selectCredits = function(image, e) {
+            selectedCredits.push(image);
+            let selectedEle = $(e.currentTarget).parent();
+            selectedEles.push(selectedEle);
+
+            if (selectedCredits.length === 1) {
+                selectedEle.addClass("highlight-start");
+            }
+
+            if (selectedCredits.length === 2) {
+                if (image <= selectedCredits[0]) {
+                    alert("End credit should greater than start credit!");
+                    selectedEles.pop();
+                    selectedCredits.pop();
+                    selectedEle.removeClass("highlight-end");
+                    return;
+                }
+                selectedEle.addClass("highlight-end");
+                let r = confirm("Do you want to update the credits?");
+                if (r == true) {
+                    // update the database
+                    $http.get(ENV.server + '/credit/' + $scope.movieid + '/' + selectedCredits[0] + '/' + selectedCredits[1] + '/true/').success(function(data) {
+                        selectedCredits = [];
+                        alert('Update successfully');
+                        selectedEles[0].removeClass("highlight-start");
+                        selectedEles[1].removeClass("highlight-end");
+                        selectedEles = [];
+                    });
+
+                } else {
+                    selectedCredits = [];
+                    selectedEles[0].removeClass("highlight-start");
+                    selectedEles[1].removeClass("highlight-end");
+                    selectedEles = [];
+                }
+
+            }
+
+        }
+
     });
