@@ -6,7 +6,7 @@ import math
 from collections import Counter
 from pprint import pprint
 from pymongo import MongoClient
-from gensim import matutils
+# from gensim import matutils
 # from vionmodels import *
 # from vionsim import *
 
@@ -47,26 +47,26 @@ def cosine_of_lists(list1, list2):
     return cosine_value, intersection
 
 
-def cosine_by_weight(list1, list2):
-    intersection = list(set(list1).intersection(set(list2)))
-    cosine_value = 0.0
-    intersection_dict = {}
+# def cosine_by_weight(list1, list2):
+#     intersection = list(set(list1).intersection(set(list2)))
+#     cosine_value = 0.0
+#     intersection_dict = {}
 
-    if intersection:
-        dict1 = dict(map(lambda k: (k, KEYWORD_WEIGHT[k]), filter(lambda x: x in list1 and x in KEYWORDS, list1)))
-        dict2 = dict(map(lambda k: (k, KEYWORD_WEIGHT[k]), filter(lambda x: x in list2 and x in KEYWORDS, list2)))
+#     if intersection:
+#         dict1 = dict(map(lambda k: (k, KEYWORD_WEIGHT[k]), filter(lambda x: x in list1 and x in KEYWORDS, list1)))
+#         dict2 = dict(map(lambda k: (k, KEYWORD_WEIGHT[k]), filter(lambda x: x in list2 and x in KEYWORDS, list2)))
         
-        intersection_dict = dict(set(dict1.items()) & set(dict2.items()))
-        # print dict1
-        # print dict2
-        # print intersection_dict
-        # print 
-        # print
-        # print
+#         intersection_dict = dict(set(dict1.items()) & set(dict2.items()))
+#         # print dict1
+#         # print dict2
+#         # print intersection_dict
+#         # print 
+#         # print
+#         # print
 
-        cosine_value = matutils.cossim(dict1, dict2)
+#         cosine_value = matutils.cossim(dict1, dict2)
 
-    return cosine_value, intersection_dict
+#     return cosine_value, intersection_dict
 
 
 
@@ -83,8 +83,9 @@ def get_movieid_sim_dict(movie, feature, is_weight):
         try:
             feature_list = movie[feature]
             if is_weight:
-                cosine_value, keyword = cosine_by_weight(given_feature_list, feature_list)
-                weighted_keywords[movie['imdbID']].update(keyword)
+                pass
+                # cosine_value, keyword = cosine_by_weight(given_feature_list, feature_list)
+                # weighted_keywords[movie['imdbID']].update(keyword)
                 # print cosine_value, keyword
                 # print
             else:
@@ -122,19 +123,25 @@ def recommend(input_movie, num_to_rec, feature_weight=FEATURE_WEIGHT, is_weight=
 
     final_counter = final_counter.most_common(num_to_rec)
 
+    recommendations = []
     detail_result_counter = Counter()
     for movieid, simscore in final_counter:
-        feature_sim = {}
-        feature_sim['sum'] = simscore
-        for feature in feature_weight:
-            feature_sim[feature] = feature_movieid_sim_dict[feature][movieid]
-        detail_result_counter[movieid] = feature_sim
-        if is_weight:
-            detail_result_counter[movieid]['words'] = weighted_keywords[movieid]
-        else:
-            detail_result_counter[movieid]['words'] = unweighted_keywords[movieid]
+        item = {}
+        item['movieid'] = movieid
+        item['simscore'] = simscore
+        item['features'] = {}
 
-    return dict(detail_result_counter)
+        for feature in feature_weight:
+            item['features'][feature] = feature_movieid_sim_dict[feature][movieid]
+
+        if is_weight:
+            item['features']['words'] = weighted_keywords[movieid]
+        else:
+            item['features']['words'] = unweighted_keywords[movieid]
+
+        recommendations.append(item)
+
+    return recommendations
 
 
 
@@ -142,11 +149,9 @@ if __name__ == '__main__':
     start = time.time()
     movieid = 'tt0484562'
     detail_result_dict = recommend(movieid, 5, is_weight=False)
-    # result_for_pipeline = recommend_for_pipeline(movieid, detail_result_dict)
+
     end = time.time()
     print end - start
     pprint(detail_result_dict)
-    # pprint(weighted_keywords)
-    # pprint(detail_result_dict)
-    # pprint([s.as_json() for s in result_for_pipeline])
-    # pprint(result_for_pipeline)
+
+

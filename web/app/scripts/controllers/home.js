@@ -7,8 +7,9 @@ angular.module('RecSystemWebApp')
             method: 'GET',
             url: $scope.server + '/allmovies/'
         }).then(function(data) {
-            var allMovies = data['data']['all_movies'];
+            var allMovies = data['data'];
             $scope.moviesForShow = allMovies.slice(0, 64);
+            // console.log($scope.moviesForShow);
 
             $scope.loadMore = function() {
                 var lastIndex = $scope.moviesForShow.length - 1;

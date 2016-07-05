@@ -7,27 +7,30 @@ angular.module('RecSystemWebApp')
         $scope.hasColorData = false;
         $scope.server = ENV.server;
         $scope.web_port = ENV.web_port;
+        // console.log(this);
 
         $http.get($scope.server + '/rec/' + $scope.movieID + '/' + $scope.recNum + '/').success(function(data) {
             console.log(data);
-            // $scope.recMovies = data;
+            $scope.recMovies = data;
 
-            let movies = {weighted: [], unweighted: []};
+            // let movies = {weighted: [], unweighted: []};
 
-            for (let movie in data.weighted) {
-                // console.log(movie);
 
-                movies['weighted'].push({movieid: movie, features: data.weighted[movie]});
-            }
 
-            for (let movie in data.unweighted) {
-                // console.log(movie);
+            // for (let movie in data.weighted) {
+            //     // console.log(movie);
 
-                movies['unweighted'].push({movieid: movie, features: data.unweighted[movie]});
-            }
-            console.log(movies);
+            //     movies['weighted'].push({movieid: movie, features: data.weighted[movie]});
+            // }
 
-            $scope.recMovies = movies;
+            // for (let movie in data.unweighted) {
+            //     // console.log(movie);
+
+            //     movies['unweighted'].push({movieid: movie, features: data.unweighted[movie]});
+            // }
+            // console.log(movies);
+
+            // $scope.recMovies = movies;
         });
 
 
@@ -108,7 +111,7 @@ angular.module('RecSystemWebApp')
 
             let feature_labels = [];
             let feature_values = [];
-            console.log(this);
+            // console.log(this);
             for (let key in this.movie.features) {
                 if (key !== 'sum' && key !== 'words') {
                     feature_labels.push(key);

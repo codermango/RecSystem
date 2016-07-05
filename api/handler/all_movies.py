@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 #coding:utf-8
 import sys
+import json
 import tornado.web
 from pymongo import MongoClient
+from libs.poster_url import get_poster_url
 
 
 DB_HOST = '192.168.1.80'
@@ -24,14 +26,16 @@ class AllMoviesHandler(tornado.web.RequestHandler):
         db = client[DB_NAME]
         col = db[DB_COLLECTION]
 
-        docs = col.find({}, {'imdbID': 1, '_id': 0})
-        result_dict = {}
-        movieid_list = []
-        for doc in docs:
-            movieid_list.append(doc['imdbID'])
+        docs = col.find({}, {'imdbID': 1, 'posterURL': 1, '_id': 0})
+        imdbID_poster_dict = [
+            {
+                'imdbID': x['imdbID'],
+                'posterURL': x['posterURL']
+            } 
+            for x in docs if x['posterURL'] != ''
+        ]
 
-        result_dict['all_movies'] = list(set(movieid_list))
         client.close()
 
-        self.write(result_dict)
+        self.write(json.dumps(imdbID_poster_dict))
 

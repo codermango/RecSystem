@@ -3,10 +3,10 @@
         <h3>All movies</h3>
         <div infinite-scroll='loadMore()' infinite-scroll-distance='0'>
             <div class="row">
-                <div class="poster-box" ng-repeat="item in moviesForShow">
+                <div class="poster-box" ng-repeat="movieid in movieIDs">
                     <div class="poster-box-wrap">
-                        <a ng-href="/#/similar/{{item.imdbID}}/8">
-                            <div class="poster-image" style="background-image: url(http://192.168.1.80:7776/{{item.imdbID}}.jpg)"></div>
+                        <a ng-href="/#/credit/{{movieid}}/">
+                            <div class="poster-image" style="background-image: url(http://192.168.1.80:7777/{{movieid}}.jpg)"></div>
                             <img src="images/poster.png" >
                         </a>
                     </div>

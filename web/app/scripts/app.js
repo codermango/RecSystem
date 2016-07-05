@@ -31,6 +31,18 @@ angular.module('RecSystemWebApp', [
             templateUrl: 'views/userbase.html',
             controller: 'UserbaseCtrl'
         })
+        .when('/svd/', {
+            templateUrl: 'views/svd.html',
+            controller: 'SVDCtrl'
+        })
+        .when('/credit/:movieid', {
+            templateUrl: 'views/credit.html',
+            controller: 'CreditCtrl'
+        })
+        .when('/credit/', {
+            templateUrl: 'views/creditmovies.html',
+            controller: 'CreditMoviesCtrl'
+        })
         // .when('/userbase/:userid/:recnum', {
         //     templateUrl: 'views/userbase.html',
         //     controller: 'UserbaseCtrl'

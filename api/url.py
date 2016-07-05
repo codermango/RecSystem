@@ -10,7 +10,9 @@ from handler.similar_movies import SimilarMoviesHandler
 from handler.special_day import SpecialDayHandler
 from handler.holiday_keyword import HolidayKeywordHandler
 from handler.theme import ThemeSearchHandler, ThemeNumSearchHandler
-from handler.userbase import UserbaseHandler
+from handler.credit import FetchCreditHandler, UpdateCreditHandler, FetchMoviesHandler
+# from handler.userbase import UserbaseHandler
+# from handler.poster import PosterHandler
 
 url = [
     (r'/allmovies/', AllMoviesHandler),
@@ -19,5 +21,9 @@ url = [
     (r'/holiday_keyword/', HolidayKeywordHandler),
     (r'/theme/(\w+(%20)*\w*(%20)*\w*)/', ThemeSearchHandler),
     (r'/theme/(\d+)/(\d+)/(\d+)/', ThemeNumSearchHandler),
-    (r'/user/(\w+)/(\d+)/', UserbaseHandler)
+    (r'/credit/vnl.(\w+)/', FetchCreditHandler),
+    (r'/credit/vnl.(\w+)/(\w+)/(\w+)/(\w+)/', UpdateCreditHandler),
+    (r'/credit/movies/', FetchMoviesHandler)
+    # (r'/user/(\w+)/(\d+)/', UserbaseHandler),
+    # (r'/posterurl/(\w+)/', PosterHandler)
 ]

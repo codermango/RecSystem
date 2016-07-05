@@ -26,7 +26,7 @@
         <div class="poster-box">
             <div class="poster-box-wrap">
                 <a ng-href="/#/similar/{{key}}/12">
-                    <div class="poster-image" style="background-image: url(http://192.168.1.80:7777/{{ movieID }}.jpg)"></div>
+                    <div class="poster-image" style="background-image: url(http://192.168.1.80:7776/{{ movieID }}.jpg)"></div>
                     <img src="images/poster.png" >
                 </a>
             </div>
@@ -53,13 +53,13 @@
 
     
 
-    <div class="info-box fg-white">
+    <!-- <div class="info-box fg-white">
         <h3>Recommended movies(weighted)</h3>
         <div class="row">
-            <div class="poster-box" ng-repeat="movie in recMovies.weighted | orderBy:'-features.sum'" ng-mouseenter="showFeatureChart($event)" ng-mouseleave="hideFeatureChart()">
+            <div class="poster-box" ng-repeat="movie in recMovies.weighted | orderBy:'-simscore'" ng-mouseenter="showFeatureChart($event)" ng-mouseleave="hideFeatureChart()">
                 <div class="poster-box-wrap image-container">
                     <a href="http://192.168.1.80:{{web_port}}/#/similar/{{movie['movieid']}}/8">
-                        <div class="poster-image" style="background-image: url(http://192.168.1.80:7777/{{ movie['movieid'] }}.jpg)"></div>
+                        <div class="poster-image" style="background-image: url(http://192.168.1.80:7776/{{ movie['movieid'] }}.jpg)"></div>
                         <img src="images/poster.png" >
                     </a>
                 </div>
@@ -74,15 +74,15 @@
                 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="info-box fg-white">
         <h3>Recommended movies</h3>
         <div class="row">
-            <div class="poster-box" ng-repeat="movie in recMovies.unweighted | orderBy:'-features.sum'" ng-mouseenter="showFeatureChart($event)" ng-mouseleave="hideFeatureChart()">
+            <div class="poster-box" ng-repeat="movie in recMovies.unweighted | orderBy:'-simscore'" ng-mouseenter="showFeatureChart($event)" ng-mouseleave="hideFeatureChart()">
                 <div class="poster-box-wrap image-container">
                     <a href="http://192.168.1.80:{{web_port}}/#/similar/{{movie['movieid']}}/8">
-                        <div class="poster-image" style="background-image: url(http://192.168.1.80:7777/{{ movie['movieid'] }}.jpg)"></div>
+                        <div class="poster-image" style="background-image: url(http://192.168.1.80:7776/{{ movie['movieid'] }}.jpg)"></div>
                         <img src="images/poster.png" >
                     </a>
                 </div>

@@ -7,6 +7,7 @@ RUN apt-get -y install python-pip
 ADD . /code
 WORKDIR /code
 RUN pip install -r /code/requirements.txt
+# RUN sudo pip install --upgrade gensim
 
 CMD python /code/server.py
 # CMD python server.py --mongo_host="$mongo_host" --mongo_port=$mongo_port --mongo_db="$mongo_db" --mongo_col="$mongo_col"

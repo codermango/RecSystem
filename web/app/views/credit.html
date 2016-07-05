@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="fg-white">
+        <h3>{{ movieid }}</h3>
+        <div class="container input-area">
+            <div class="input-control modern">
+                Start: <label>{{ startSec }}</label>
+            </div>
+            <div class="input-control modern">
+                End: <label>{{ endSec }}</label>
+            </div>
+            <button class="button" ng-click="updateCredit(movieid, startSec, endSec, false)">Go</button>
+        </div>
+        <div class="container input-area">
+            <div class="input-control modern">
+                <input type="text" ng-model='startSecond'>
+                <!-- <span class="label input-area-text">ng-</span> -->
+                <span class="informer" ng-hide="startSecond">Start</span>
+                <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
+            </div>
+
+            <div class="input-control modern">
+                <input type="text" ng-model='endSecond'>
+                <!-- <span class="label input-area-text">ng-</span> -->
+                <span class="informer" ng-hide="endSecond">End</span>
+                <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
+            </div>
+            <button class="button" ng-click="updateCredit(movieid, startSecond, endSecond, true)">Go</button>
+        </div>
+        <div ng-if="frameImages != []" class="row">
+            <div class="poster-box" ng-repeat="image in frameImages">
+                <!--<div class="poster-box-wrap">-->
+                    <!--<div style="background-image: url(data/credits/{{movieid}}/{{image}})"></div>-->
+                    <img src="/data/credits/{{movieid}}/{{image}}" >
+                <!--</div>-->
+                <div class="poster-box-id">
+                    {{image}}
+                </div>
+            </div>
+        </div>
+        <div ng-if="frameImages == []">
+            <h2>There is no frame images!</h2>
+        </div>
+    </div>
+</div>

@@ -32,6 +32,7 @@ body {
 
 .container {
     padding: 0;
+    width: 1600px;
 }
 
 .input-area {
@@ -130,6 +131,12 @@ label {
     &-id {
         text-align: center;
     }
+    &-credit {
+        .make-xs-column(12);
+        .make-sm-column(6);
+        .make-md-column(4);
+        .make-lg-column(3);
+    }
     .poster-image {
         position: absolute;
         top: 0;
@@ -153,6 +160,9 @@ label {
     }
 }
 
+.credit-container {
+    width: 1600px;
+}
 
 //  SCSS Variables & Mixins  
 // //variables
@@ -259,7 +269,7 @@ label {
     width: 1170px;
     // min-width: 310px; 
     max-width: 1170px;
-    margin: 0 auto;
+    margin: 100px auto;
 }
 
 #feature-chart {
