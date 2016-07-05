@@ -13,12 +13,13 @@ class FetchCreditHandler(tornado.web.RequestHandler):
 
         movieid = 'vnl.' + movieid
 
-        dir_abspath = os.path.abspath(os.path.dirname(__file__)) + '/../data/credits/' + movieid
+        # dir_abspath = os.path.abspath(os.path.dirname(__file__)) + '/../data/credits/' + movieid
+        dir_abspath = "/home/mark/Projects/mark/RecSystem/web/app/data/credits/" + movieid
         try:
             filename_list = os.listdir(dir_abspath)
         except OSError:
             filename_list = []
-
+        # print filename_list
         client = MongoClient('192.168.1.60')
         out_col = client['VionelMovies']['end_credit']
         movie = out_col.find_one({'vnlID': movieid})

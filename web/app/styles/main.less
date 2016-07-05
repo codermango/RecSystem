@@ -6,6 +6,7 @@
 
 // @import "../bower_components/metro/less/metro.less";
 @import "../bower_components/metro/less/menu.less";
+@import "../bower_components/metro/less/appbar.less";
 @import "../bower_components/metro/less/inputs.less";
 @import "../bower_components/metro/less/dialog.less";
 @import "../bower_components/metro/less/images.less";
@@ -37,7 +38,7 @@ body {
 
 .input-area {
     position: relative;
-    margin: 10px 0;
+    margin: 5px 0;
     button {
         position: absolute;
         right: 0;
@@ -77,11 +78,6 @@ label {
 
 .m-menu {
     background-color: #07374F;
-    margin-bottom: 100px;
-    li {
-        background-color: #07374F;
-        color: @color_white;
-    }
 }
 
 
@@ -275,6 +271,27 @@ label {
 #feature-chart {
     z-index: 1000;
 }
+
+.credit-start-highlight {
+    background-color: green;
+}
+
+.credit-end-highlight {
+    background-color: red;
+}
+
+.fix-area {
+    top: 63px;
+    position: fixed;
+    z-index: 1000;
+    background-color: #021420;
+}
+
+.frame-area {
+    margin-top: 300px;
+}
+
+
 
 
 

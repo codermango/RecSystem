@@ -1,38 +1,47 @@
 <div class="container">
     <div class="fg-white">
-        <h3>{{ movieid }}</h3>
-        <div class="container input-area">
-            <div class="input-control modern">
-                Start: <label>{{ startSec }}</label>
+        <div class="fix-area">
+            <h3>{{ movieid }}</h3>
+            <div class="container input-area">
+                <div class="input-control modern">
+                    Start: <label>{{ startSec }}</label>
+                </div>
+                <div class="input-control modern">
+                    End: <label>{{ endSec }}</label>
+                </div>
+                <button class="button" ng-click="updateCredit(movieid, startSec, endSec, false)">Confirm</button>
             </div>
-            <div class="input-control modern">
-                End: <label>{{ endSec }}</label>
-            </div>
-            <button class="button" ng-click="updateCredit(movieid, startSec, endSec, false)">Go</button>
-        </div>
-        <div class="container input-area">
-            <div class="input-control modern">
-                <input type="text" ng-model='startSecond'>
-                <!-- <span class="label input-area-text">ng-</span> -->
-                <span class="informer" ng-hide="startSecond">Start</span>
-                <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
-            </div>
+            <div class="container input-area">
+                <div class="input-control modern">
+                    <input type="text" ng-model='startSecond'>
+                    <!-- <span class="label input-area-text">ng-</span> -->
+                    <span class="informer" ng-hide="startSecond">Start</span>
+                    <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
+                </div>
 
-            <div class="input-control modern">
-                <input type="text" ng-model='endSecond'>
-                <!-- <span class="label input-area-text">ng-</span> -->
-                <span class="informer" ng-hide="endSecond">End</span>
-                <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
+                <div class="input-control modern">
+                    <input type="text" ng-model='endSecond'>
+                    <!-- <span class="label input-area-text">ng-</span> -->
+                    <span class="informer" ng-hide="endSecond">End</span>
+                    <!-- <span class="placeholder" ng-hide="ngnum">Input ng number</span> -->
+                </div>
+                <button class="button" ng-click="updateCredit(movieid, startSecond, endSecond, true)">Update</button>
             </div>
-            <button class="button" ng-click="updateCredit(movieid, startSecond, endSecond, true)">Go</button>
         </div>
-        <div ng-if="frameImages != []" class="row">
+
+        <div ng-if="frameImages != []" class="row frame-area">
             <div class="poster-box" ng-repeat="image in frameImages">
                 <!--<div class="poster-box-wrap">-->
                     <!--<div style="background-image: url(data/credits/{{movieid}}/{{image}})"></div>-->
-                    <img src="/data/credits/{{movieid}}/{{image}}" >
+                    <img src="/data/credits/{{movieid}}/{{image}}.jpg" >
                 <!--</div>-->
-                <div class="poster-box-id">
+                <div ng-if="image == startSec" class="poster-box-id credit-start-highlight">
+                    {{image}}
+                </div>
+                <div ng-if="image == endSec - 1" class="poster-box-id credit-end-highlight">
+                    {{image}}
+                </div>
+                <div ng-if="image != startSec && image != endSec - 1" class="poster-box-id">
                     {{image}}
                 </div>
             </div>

@@ -8,10 +8,10 @@ angular.module('RecSystemWebApp')
         $http.get(ENV.server + '/credit/' + $scope.movieid + '/').success(function(data) {
             console.log(data);
             
-            $scope.frameImages = data["frames"].sort();
+            $scope.frameImages = data["frames"].sort().map(item => Number(item.split(".")[0]));
             $scope.movieid = data["movieid"];
-            $scope.startSec = data["start_seconds"];
-            $scope.endSec = data["end_seconds"];
+            $scope.startSec = Number(data["start_seconds"]);
+            $scope.endSec = Number(data["end_seconds"]);
         });
 
         $scope.updateCredit = function(movieid, startSec, endSec, isUpdated) {
